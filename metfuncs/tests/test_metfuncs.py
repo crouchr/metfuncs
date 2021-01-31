@@ -88,13 +88,12 @@ def test_kph_to_beaufort(m_per_sec, expected):
     [
         (0,  "NE"),
         (45, "NE"),
-        (90, "NE"),
+        (90, "SE"),
         (91, "SE"),
-
         (135, "SE"),
         (179, "SE"),
-        (180,"SW"),
-        (360, "NE"),
+        (180, "SW"),
+        (360, "NW"),
     ]
 )
 def test_wind_deg_to_quadrant(wind_deg, expected):
