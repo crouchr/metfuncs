@@ -6,4 +6,4 @@
 pipenv run python setup.py bdist_wheel
 pipenv run python setup.py sdist
 #cp dist/* /home/crouchr/PycharmProjects/learnage/environments/production/web-server/apache/python-packages/metfuncs/
-scp dist/* crouchr@192.168.1.102://home/crouchr/PycharmProjects/learnage/environments/production/web-server/apache/python-packages/metfuncs/
+scp dist/* crouchr@192.168.1.15://home/crouchr/PycharmProjects/learnage/environments/production/web-server/apache/python-packages/metfuncs/
