@@ -10,9 +10,9 @@ import metfuncs.metfuncs as metfuncs
     "mph, expected",
     [
         (0.0,  0.0),
-        (1.0,  0.8690),
-        (2.5,  2.1724),
-        (10.0, 8.6898),
+        (1.0,  0.87),
+        (2.5,  2.17),
+        (10.0, 8.69),
     ]
 )
 def test_mph_to_knots(mph, expected):
@@ -25,9 +25,9 @@ def test_mph_to_knots(mph, expected):
     "m_per_sec, expected",
     [
         (0.0,  0.0),
-        (1.0,  1.9438),
-        (2.5,  4.8596),
-        (10.0, 19.4384),
+        (1.0,  1.94),
+        (2.5,  4.86),
+        (10.0, 19.44),
     ]
 )
 def test_m_per_sec_to_knots(m_per_sec, expected):
@@ -40,14 +40,28 @@ def test_m_per_sec_to_knots(m_per_sec, expected):
     "kph, expected",
     [
         (0.0,  0.0),
-        (1.0,  0.5400),
-        (2.5,  1.3499),
-        (10.0, 5.3996),
+        (1.0,  0.54),
+        (2.5,  1.35),
+        (10.0, 5.40),
     ]
 )
 def test_kph_to_knots(kph, expected):
     knots = round(metfuncs.kph_to_knots(kph),4)
     assert knots == expected
+
+
+@pytest.mark.parametrize(
+    "knots, expected",
+    [
+        (0.0,  0.0),
+        (1.0,  1.85),
+        (2.5,  4.63),
+        (10.0, 18.52),
+    ]
+)
+def test_knots_to_kph(knots, expected):
+    kph = round(metfuncs.knots_to_kph(knots), 2)
+    assert kph == expected
 
 
 # ----------
@@ -72,9 +86,9 @@ def test_kph_to_beaufort(kph, expected):
     "m_per_sec, expected",
     [
         (0.0,  0),
-        (1.0,  3.6),
+        (1.0,  3.60),
         (5.1, 18.36),
-        (10.0, 36.0),
+        (10.0, 36.00),
     ]
 )
 def test_kph_to_beaufort(m_per_sec, expected):

@@ -9,7 +9,7 @@ def mph_to_knots(mph):
     """
     knots = mph * 0.868976
 
-    return knots
+    return round(knots, 2)
 
 
 def m_per_sec_to_knots(m_per_sec):
@@ -19,7 +19,8 @@ def m_per_sec_to_knots(m_per_sec):
     """
     knots = m_per_sec * 1.94384
 
-    return knots
+    return round(knots, 2)
+
 
 # https://www.google.com/search?client=firefox-b-e&q=kph+to+knots
 def kph_to_knots(kph):
@@ -29,7 +30,17 @@ def kph_to_knots(kph):
     """
     knots = kph * 0.539957
 
-    return knots
+    return round(knots, 2)
+
+
+def knots_to_kph(knots):
+    """
+    Convert wind speed in to knots to kph
+    :return:
+    """
+    kph = knots * (1/0.539957)
+
+    return round(kph, 2)
 
 
 def metres_per_sec_to_kph(m_per_sec):
@@ -39,7 +50,7 @@ def metres_per_sec_to_kph(m_per_sec):
     """
     kph = m_per_sec * 3.6
 
-    return kph
+    return round(kph, 2)
 
 
 def kph_to_beaufort(kph):
