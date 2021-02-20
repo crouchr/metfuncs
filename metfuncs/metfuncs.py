@@ -84,6 +84,8 @@ def wind_deg_to_quadrant(wind_deg):
     :param wind_deg:
     :return:
     """
+    wind_deg = int(wind_deg)
+
     if wind_deg >= 0 and wind_deg < 90:
         quadrant = "NE"
     elif wind_deg >= 90 and wind_deg < 180:

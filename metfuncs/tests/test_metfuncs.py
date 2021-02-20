@@ -108,6 +108,6 @@ def test_wind_deg_to_quadrant(wind_deg, expected):
         ("N",  "NE"),
     ]
 )
-def wind_dir_to_quadrant(wind_dir, expected):
+def test_wind_dir_to_quadrant(wind_dir, expected):
     wind_quadrant = metfuncs.wind_deg_to_quadrant(wind_dir)
     assert wind_quadrant == expected
