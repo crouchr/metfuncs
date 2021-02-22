@@ -6,7 +6,8 @@ import synopsis
 @pytest.mark.parametrize(
     "temp_c, wet_bulb_c, dew_point_c, wind_knots_2m, rain_rate, expected_code, expected_text",
     [
-        (1, 1,  1, 0, 0, 30, 'FOG'),
+        (1, 1,  1, 5.0, 0, 30, 'FOG'),
+        (1, 1, 1, 0, 0, 30, 'FOG'),
         (-1, -1, -1, 0, 0, 31, 'Fog or ice fog in patches'),
         (1, 1, 1, 0, 1.0, 61, 'Rain, not freezing, slight'),
         (1, 1, 1, 0, 3.0, 62, 'Rain, not freezing, moderate'),
