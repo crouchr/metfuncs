@@ -4,13 +4,13 @@ import wet_bulb
 
 
 @pytest.mark.parametrize(
-    "temp_c, pressure_mbar, rel_humidity, expected",
+    "temp_c, pressure_mbar, dew_point_c, expected",
     [
-        (31, 1013.25, 70.0, 26.6),
+        (31, 1013.25, 30, 30.7),
     ]
 )
-def test_wet_bulb(temp_c, pressure_mbar, rel_humidity, expected):
-    wet_bulb_c = wet_bulb.get_wet_bulb(temp_c, pressure_mbar, rel_humidity)
+def test_wet_bulb(temp_c, pressure_mbar, dew_point_c, expected):
+    wet_bulb_c = wet_bulb.get_wet_bulb(temp_c, pressure_mbar, dew_point_c)
 
     assert wet_bulb_c == expected
 

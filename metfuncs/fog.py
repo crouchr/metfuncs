@@ -2,7 +2,7 @@
 # find the range that contains all three values and it must be less than a threshold I can adjust
 # This will work with data calculated with an AWS
 # add lux in as < 10K ?
-def fog_algo_1(temp_c, dew_point_c, wet_bulb_c, wind_knots_2m, permitted_range=0.2):
+def fog_algo_1(temp_c, dew_point_c, wet_bulb_c, wind_knots_2m, permitted_range=0.15):
     """
 
     :param temp_c:
