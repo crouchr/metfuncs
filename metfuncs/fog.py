@@ -2,19 +2,23 @@
 # find the range that contains all three values and it must be less than a threshold I can adjust
 # This will work with data calculated with an AWS
 # add lux in as < 10K ?
-def fog_algo_1(temp_c, dew_point_c, wet_bulb_c, wind_knots_2m, permitted_range=0.15):
+def fog_algo_1(temp_c, dew_point_c, wet_bulb_c, wind_knots_2m, solar, permitted_range=0.1):
     """
 
     :param temp_c:
     :param dew_point_c:
     :param wet_bulb_c:
     :param wind_knots_2m: Wind speed at 2m high (not 10m)
+    :param solar: Watts (integer)
     :param permitted_range: All 3 temperatures must be within this range
     :return:
     """
 
     # fog won't form if wind speed is too high - this is from my own observations - not seen a rule
     if wind_knots_2m >= 8.0:
+        return False
+
+    if solar >= 20:     # too light for fog ?
         return False
 
     temps = [temp_c, dew_point_c, wet_bulb_c]

@@ -1,9 +1,25 @@
 # functions related to solar radiation
 
 def convert_lux_to_watts(lux):
+    """
+
+    :param lux:
+    :return:
+    """
     watts = lux * 0.0079
 
     return watts
+
+
+def convert_watts_to_lux(watts):
+    """
+
+    :param watts:
+    :return:
+    """
+    lux = watts * (1 / 0.0079)
+
+    return lux
 
 
 # fixme : add time so that 'sunset/sunrise' can be added

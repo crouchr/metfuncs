@@ -35,6 +35,6 @@ def test_convert_lux_to_watts(lux, expected):
     ]
 )
 def test_map_lux_to_sky_condition(lux, expected):
-   sky_condition =  solar_funcs.map_lux_to_sky_condition(lux)
+   sky_condition = solar_funcs.map_lux_to_sky_condition(lux)
 
    assert sky_condition == expected

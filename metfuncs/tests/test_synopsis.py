@@ -15,11 +15,11 @@ import synopsis
         (-1, 1, 1, 0, 1.0, 64, 'Rain, freezing, slight'),
         (-1, 1, 1, 0, 3.0, 65, 'Rain, freezing, moderate'),
         (-1, 1, 1, 0, 8.0, 66, 'Rain, freezing, heavy'),
-        (10, 12, 13, 6, 0.0, 0, 'No significant weather observed'),
+        (10, 12, 13, 6, 0.0, 0, '-None-'),
     ]
 )
 def test_get_synopsis(temp_c, wet_bulb_c, dew_point_c, wind_knots_2m, rain_rate, expected_code, expected_text):
-    wmo_4680_code, wmo_4680_text = synopsis.get_synopsis(temp_c, wet_bulb_c, dew_point_c, rain_rate, wind_knots_2m)
+    wmo_4680_code, wmo_4680_text = synopsis.get_synopsis(temp_c, wet_bulb_c, dew_point_c, rain_rate, wind_knots_2m, solar=6)
 
     assert wmo_4680_code == expected_code
     assert wmo_4680_text == expected_text
