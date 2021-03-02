@@ -18,7 +18,7 @@ def fog_algo_1(temp_c, dew_point_c, wet_bulb_c, wind_knots_2m, solar, permitted_
     if wind_knots_2m >= 8.0:
         return False
 
-    if solar >= 20:     # too light for fog ?
+    if solar >= 80:      # too light for fog i.e. sun starting to burn off ?
         return False
 
     temps = [temp_c, dew_point_c, wet_bulb_c]
