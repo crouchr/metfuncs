@@ -16,6 +16,7 @@ def get_synopsis(temp_c, wet_bulb_c, dew_point_c, rain_rate, wind_knots_2m, sola
     :param dew_point_c:
     :param rain_rate:
     :param wind_knots_2m:
+    :param solar:
     :return:
     """
 
@@ -50,14 +51,13 @@ def get_synopsis(temp_c, wet_bulb_c, dew_point_c, rain_rate, wind_knots_2m, sola
         if temp_c < 0.0:
             return 31, 'Fog or ice fog in patches'
         else:
-            return 30, "FOG"
+            return 30, "Fog"
 
     # wait until I have built ultrasonic snow detector
     # if temp_c < 3.0:
     #     return 70, "SNOW"
 
-    # return 0, 'No significant weather observed' # this is official one but make shorter for .tsv file
-    return 0, '-None-'
+    return 0, 'No significant weather observed'
 
 
 # Rain is handled in the WMO Synopsis
