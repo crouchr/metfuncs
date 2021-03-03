@@ -8,6 +8,7 @@ importlib-metadata = "==3.3.0"
 numpy = "==1.20.1"
 pytest = "==6.2.1"
 metpy = "==1.0"
+pysolar = "==0.9"
 
 [dev-packages]
 

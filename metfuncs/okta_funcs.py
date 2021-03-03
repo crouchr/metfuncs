@@ -5,7 +5,9 @@ def coverage_to_okta(coverage):
     :param coverage:
     :return:
     """
-    if coverage == 0:
+    if coverage < 0:
+        okta = -1           # special case where coverage is not known e.g. in middle of night
+    elif coverage == 0:
         okta = 0
     elif coverage > 0 and coverage < 18.75:
         okta = 1
@@ -33,7 +35,9 @@ def convert_okta_to_cloud_cover(okta):
     :param okta:
     :return:
     """
-    if okta == 0:
+    if okta == -1:
+        cloud_cover = ('N/A', 'N/A')
+    elif okta == 0:
         cloud_cover = ('Sky Clear', 'SKC')
     elif okta == 1 or okta == 2:
         cloud_cover = ('Few', 'FEW')

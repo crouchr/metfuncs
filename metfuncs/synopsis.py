@@ -67,7 +67,7 @@ def get_additional_synopsis(temp_c, wet_bulb_c, dew_point_c, beaufort, lux):
     :param temp_c:
     :param wet_bulb_c:
     :param dew_point_c:
-    :param wind_knots_2m:
+    :param beaufort:
     :param lux:
     :return:
     """
@@ -85,7 +85,7 @@ def get_additional_synopsis(temp_c, wet_bulb_c, dew_point_c, beaufort, lux):
 
 def map_wind_speed_to_condition(beaufort):
     beaufort_map = {
-        '0' : 'calm',
-        '1' : 'Light air',
+        '0': 'calm',
+        '1': 'Light air',
 
     }

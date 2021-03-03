@@ -9,6 +9,7 @@ import okta_funcs
 @pytest.mark.parametrize(
     "coverage, expected_okta",
     [
+        (-20, -1),
         (0, 0),
         (10, 1),
         (20, 2),
@@ -28,7 +29,7 @@ def test_coverage_to_okta(coverage, expected_okta):
 
 @pytest.mark.parametrize(
     "okta, expected_text, expected_abbreviation",
-    [
+    [   (-1, 'N/A', 'N/A'),
         (0, 'Sky Clear', 'SKC'),
         (1, 'Few', 'FEW'),
         (2, 'Few', 'FEW'),
