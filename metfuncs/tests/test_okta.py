@@ -7,22 +7,23 @@ import okta_funcs
 
 # ----------
 @pytest.mark.parametrize(
-    "coverage, expected_okta",
+    "coverage, is_fog, expected_okta",
     [
-        (-20, -1),
-        (0, 0),
-        (10, 1),
-        (20, 2),
-        (35, 3),
-        (45, 4),
-        (60, 5),
-        (75, 6),
-        (85, 7),
-        (100, 8)
+        (-20, False, -1),
+        (0, False, 0),
+        (10, False, 1),
+        (20, False, 2),
+        (35, False, 3),
+        (45, False, 4),
+        (60, False, 5),
+        (75, False, 6),
+        (85, False, 7),
+        (100, False, 8),
+        (35, True, 9),
     ]
 )
-def test_coverage_to_okta(coverage, expected_okta):
-    this_okta = okta_funcs.coverage_to_okta(coverage)
+def test_coverage_to_okta(coverage, is_fog, expected_okta):
+    this_okta = okta_funcs.coverage_to_okta(coverage, is_fog)
 
     assert this_okta == expected_okta
 
@@ -39,6 +40,7 @@ def test_coverage_to_okta(coverage, expected_okta):
         (6, 'Broken', 'BKN'),
         (7, 'Broken', 'BKN'),
         (8, 'Overcast', 'OVC'),
+        (9, 'Obstructed', 'OBS'),
     ]
 )
 def test_convert_okta_to_cloud_cover(okta, expected_text, expected_abbreviation):

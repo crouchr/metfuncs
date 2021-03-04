@@ -41,7 +41,7 @@ def get_solar_radiation_theoretical(altitude_deg):
     return round(solar_radiation, 1)
 
 
-def calc_cloud_coverage(solar_rad_actual, solar_rad_theoretical):
+def calc_cloud_coverage(lat, lon, solar_rad_actual, solar_rad_theoretical):
     """
 
     :param solar_rad_actual:
@@ -49,8 +49,11 @@ def calc_cloud_coverage(solar_rad_actual, solar_rad_theoretical):
     :return:
     """
 
-    if solar_rad_theoretical < 10.0:
-        return -10          # make it obvious we are in this case
+    sun_altitude = calc_altitude(lat, lon)
+    if sun_altitude < 2.0:      # otherwise get divide by zero
+        return -10
+    # if solar_rad_theoretical < 10.0:
+    #     return -10          # make it obvious we are in this case
 
     solar_fraction = solar_rad_actual / solar_rad_theoretical
 

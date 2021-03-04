@@ -1,11 +1,13 @@
 #
-def coverage_to_okta(coverage):
+def coverage_to_okta(coverage, is_fog):
     """
     Convert cloud coverage percent to Okta
     :param coverage:
     :return:
     """
-    if coverage < 0:
+    if is_fog:
+        okta = 9
+    elif coverage < 0:
         okta = -1           # special case where coverage is not known e.g. in middle of night
     elif coverage == 0:
         okta = 0
@@ -28,13 +30,15 @@ def coverage_to_okta(coverage):
 
     return okta
 
-
+# -1 = unable to determine the numercial okta value
+# 9 = fog
 def convert_okta_to_cloud_cover(okta):
     """
     Convert Okta to Cloud Cover Text
     :param okta:
     :return:
     """
+
     if okta == -1:
         cloud_cover = ('N/A', 'N/A')
     elif okta == 0:
@@ -47,5 +51,7 @@ def convert_okta_to_cloud_cover(okta):
         cloud_cover = ('Broken', 'BKN')
     elif okta == 8:
         cloud_cover = ('Overcast', 'OVC')
+    elif okta == 9:
+        cloud_cover = ('Obstructed', 'OBS')     # I completely made these up
 
     return cloud_cover
