@@ -43,7 +43,8 @@ def get_solar_radiation_theoretical(altitude_deg):
 
 def calc_cloud_coverage(lat, lon, solar_rad_actual, solar_rad_theoretical):
     """
-
+    :param lat:
+    :param lon:
     :param solar_rad_actual:
     :param solar_rad_theoretical:
     :return:
@@ -55,7 +56,12 @@ def calc_cloud_coverage(lat, lon, solar_rad_actual, solar_rad_theoretical):
     # if solar_rad_theoretical < 10.0:
     #     return -10          # make it obvious we are in this case
 
-    solar_fraction = solar_rad_actual / solar_rad_theoretical
+    # solar_rad_actual is corrected and hence could be > solar_rad_theoretical and
+    # so in this case, set them the same to get coverage_percent = 0
+    if solar_rad_actual >= solar_rad_theoretical:
+        solar_fraction = 1
+    else:
+        solar_fraction = (solar_rad_actual / solar_rad_theoretical)
 
     cloud_coverage = 100 * (1-solar_fraction)
 
