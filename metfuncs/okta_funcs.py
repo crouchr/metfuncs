@@ -52,6 +52,6 @@ def convert_okta_to_cloud_cover(okta):
     elif okta == 8:
         cloud_cover = ('Overcast', 'OVC')
     elif okta == 9:
-        cloud_cover = ('Obstructed', 'OBS')     # I completely made these up
+        cloud_cover = ('Obfuscated', 'OBS')     # I completely made these up
 
     return cloud_cover

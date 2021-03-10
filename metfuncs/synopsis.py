@@ -7,7 +7,7 @@ import solar_funcs
 # Rain is classified as light, meaning rain falling at a rate between a trace and 0.10 inch per hour;
 # moderate, 0.11 to 0.30 inch per hour;
 # heavy, more than 0.30 inch per hour.28 Sept 2018
-def get_synopsis(temp_c, wet_bulb_c, dew_point_c, rain_rate, wind_knots_2m, solar):
+def get_synopsis(temp_c, wet_bulb_c, dew_point_c, rain_rate, wind_knots_2m, solar, humidity):
     """
     Calculate the WMO 4680 current weather code and text
 
@@ -20,7 +20,7 @@ def get_synopsis(temp_c, wet_bulb_c, dew_point_c, rain_rate, wind_knots_2m, sola
     :return:
     """
 
-    is_foggy = fog.fog_algo_1(temp_c, dew_point_c, wet_bulb_c, wind_knots_2m, solar)
+    is_foggy = fog.fog_algo_1(temp_c, dew_point_c, wet_bulb_c, wind_knots_2m, solar, humidity)
 
     if rain_rate > 0.0 and rain_rate < 2.54:
         rain = 'slight'
