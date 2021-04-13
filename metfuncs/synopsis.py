@@ -17,6 +17,7 @@ def get_synopsis(temp_c, wet_bulb_c, dew_point_c, rain_rate, wind_knots_2m, sola
     :param rain_rate:
     :param wind_knots_2m:
     :param solar:
+    :param humidity:
     :return:
     """
 
