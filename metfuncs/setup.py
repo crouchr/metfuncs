@@ -3,7 +3,7 @@
 
 from setuptools import setup, find_packages
 
-setup(version='1.0.25',
+setup(version='1.0.26',
       description='Functions for handling meteorological data',
       author='Richard Crouch',
       author_email='richard.crouch100@gmail.com',
@@ -17,6 +17,7 @@ setup(version='1.0.25',
             'solar_rad_expected',
             'wind_calibration',
             'okta_funcs',
+            'mean_sea_level_pressure',
             'feels_like',
             'wet_bulb',
             'fog',
