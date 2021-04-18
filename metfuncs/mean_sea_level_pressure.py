@@ -15,7 +15,6 @@ def msl_k_factor(height, temp_c):
         10: [1.3, 1.3, 1.2, 1.2, 1.1],
         20: [2.6, 2.5, 2.4, 2.3, 2.3],
         90: [11.7, 11.3, 10.9, 10.5, 10.2]
-
     }
 
     height_rounded = int(round(height/10)*10)
