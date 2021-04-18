@@ -5,7 +5,7 @@
 # Stockcross 90m
 def msl_k_factor(height, temp_c):
     """
-    See Burt Table 7.2 p 177
+    See Burt Table 7.2 p.177
     :param height: metres
     :param temp: external air temperature
     :return: correction factor
