@@ -8,7 +8,7 @@
 def msl_k_factor(height, temp_c):
     """
     See Burt Table 7.2 p.177
-    :param height: metres
+    :param height: of the site above sea level, e.g. Stockcross (metres)
     :param temp: external air temperature
     :return: correction factor
     """
