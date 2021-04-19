@@ -6,6 +6,7 @@ import mean_sea_level_pressure
 @pytest.mark.parametrize(
     "height, temp_c, expected",
     [
+        (50, -8, 6.5),
         (90, -8, 11.7),
         (90, -2, 11.3),
         (90, 8, 10.9),
