@@ -20,7 +20,11 @@ setup(version='1.0.28',
             'mean_sea_level_pressure',
             'feels_like',
             'wet_bulb',
+            'dew_point',
             'fog',
-            'synopsis'
+            'synopsis',
+            'moon_phase',
+            'cloud_base',
+            'snow_probability'
             ],
       )
