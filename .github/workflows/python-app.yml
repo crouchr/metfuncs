@@ -25,6 +25,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install flake8 pytest pipenv
         pipenv install --system --deploy
+        export PYTHONPATH="${PYTHONPATH}:/path/to/your/project/"
+        pwd
+        echo ${PYTHONPATH}
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
