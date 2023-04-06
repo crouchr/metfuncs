@@ -3,7 +3,7 @@
 
 from setuptools import setup, find_packages
 
-setup(version='1.0.29',
+setup(version='1.0.30',
       description='Functions for handling meteorological data',
       author='Richard Crouch',
       author_email='richard.crouch100@gmail.com',
