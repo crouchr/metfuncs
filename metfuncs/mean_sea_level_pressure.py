@@ -1,12 +1,36 @@
 
-# https://stackoverflow.com/questions/50508262/using-look-up-tables-in-python
 
+# source : https://gist.github.com/cubapp/23dd4e91814a995b8ff06f406679abcf
+def abs_to_sea_pressure(pressure, height, temp_c):
+    """
+    :param pressure: absolute pressure (hpa)a
+    :param height: above sea-level in metres
+    :param temp_c:
+    :return:
+    """
+
+# Actual atmospheric pressure in hPa
+#aap = 990
+# Actual temperature in Celsius
+#atc = 10
+# Height above sea level
+#hasl = 500
+
+    # Adjusted-to-the-sea barometric pressure
+    a2ts = pressure + ((pressure * 9.80665 * height)/(287 * (273 + temp_c + (height/400))))
+
+    return a2ts
+
+# in standard places (hasl from 100-800 m, temperature from -10 to 35)
+# is the coeficient something close to hasl/10, meaning simply
+# a2ts is about  aap + hasl/10
 # See Table 7.2 Burt book
 # Stockcross 90m - not confirmed
 # Currently using 50m to see if it lines up better with OpenWeatherAPI
 # TODO : Could make more even accurate by adding interpolation
-# FIXME : does not work for height = 0
 # In my book, I only have data for 30 degrees so just 'guess' 40C i.e. last column
+# https://stackoverflow.com/questions/50508262/using-look-up-tables-in-python
+# I stopped using this as it can't handle temperatures > 35 degrees C'
 def msl_k_factor(height, temp_c):
     """
     See Burt Table 7.2 p.177
@@ -59,9 +83,16 @@ def msl_k_factor(height, temp_c):
 if __name__ == '__main__':
     import sys
 
-    for height in range(0, 110):
-        for temp_c in range(-10, 45):
-            msl = msl_k_factor(height, temp_c)
-            print(f"msl_k_factor() for height {height}, temp_c {temp_c} is {msl}")
-            if msl == -999:
-                sys.exit("A test failed : Failure case")
+    for pressure in range(890, 1100):
+        for height in range(0, 150):
+            for temp_c in range(-20, 65):
+                sea_level_pressure = abs_to_sea_pressure(pressure, height, temp_c)
+                print(f"sea_level_pressure for pressure {pressure} height {height}, temp_c {temp_c} is {sea_level_pressure}")
+
+
+    # for height in range(0, 110):
+    #     for temp_c in range(-10, 45):
+    #         msl = msl_k_factor(height, temp_c)
+    #         print(f"msl_k_factor() for height {height}, temp_c {temp_c} is {msl}")
+    #         if msl == -999:
+    #             sys.exit("A test failed : Failure case")
